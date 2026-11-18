@@ -1,0 +1,28 @@
+{
+  "name": "sonoraware",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/rhuan-rgb/SonoraWare#readme",
+  "bugs": {
+    "url": "https://github.com/rhuan-rgb/SonoraWare/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhuan-rgb/SonoraWare.git"
+  },
+  "license": "ISC",
+  "author": "Rhuan Silva Lima",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env --watch src/index.js",
+    "start": "node --env-file-if-exists=.env src/index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^2.5.0",
+    "mysql2": "^3.24.6"
+  }
+}

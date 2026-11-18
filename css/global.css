@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* representa o nível principal do documento usado para criar variáveis CSS 
+    assim quando precisarmos da cor no futuro não tenha que colocar o código dela
+    coloca por exemplo --cor-fundo*/
+    --cor-fundo: #020817;
+    --cor-fundo-secundaria: #071426;
+
+    --cor-azul: #00bfff;
+    --cor-roxa: #8a2be2;
+    --cor-rosa: #ff00c8;
+
+    --cor-texto: #ffffff;
+    --cor-texto-secundario: #aab7cf;
+
+    --cor-borda: #1e4f91;
+}
+
+body {
+    min-height: 100vh;
+
+    background-color: var(--cor-fundo);
+
+    background-image: url("../assets/images/backgrounds/background.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: var(--cor-texto);
+    font-family: Arial, sans-serif;
+}
+
+.pagina-voltar {
+    width: 100%;
+
+    padding: 0 40px;
+
+    margin-bottom: 14px;
+}
+
+.botao-voltar {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    transition:
+        color 0.25s,
+        transform 0.25s;
+}
+
+.botao-voltar__seta {
+    color: #5de7ff;
+
+    font-size: 19px;
+    font-weight: 800;
+
+    transition: transform 0.25s;
+}
+
+.botao-voltar:hover {
+    color: #8eeeff;
+}
+
+.botao-voltar:hover .botao-voltar__seta {
+    transform: translateX(-4px);
+}
+
+@media (max-width: 700px) {
+
+    .pagina-voltar {
+        padding: 0 18px;
+    }
+
+}

@@ -1,0 +1,32 @@
+.perfil-api { width: 100%; max-width: 1080px; margin: 32px auto 60px; padding: 0 24px; }
+.perfil-api > h1 { margin: 28px 0 20px; font-size: 34px; overflow-wrap: anywhere; }
+.perfil-api > img { width: 160px; height: 160px; object-fit: cover; border: 1px solid rgba(0,191,255,.35); border-radius: 24px; margin-bottom: 20px; }
+.perfil-api dl { display: grid; grid-template-columns: minmax(130px,1fr) 2fr; gap: 16px 24px; padding: 28px; margin: 0 0 28px; background: rgba(8,20,42,.85); border: 1px solid rgba(170,183,207,.15); border-radius: 20px; line-height: 1.6; }
+.perfil-api dt { color: var(--cor-texto-secundario); font-size: 14px; }
+.perfil-api dd { margin: 0; min-width: 0; overflow-wrap: anywhere; white-space: pre-wrap; }
+.perfil-api__editor { max-width: none; }
+.perfil-api__editor > h2 { font-size: 28px; margin-bottom: 10px; }
+.perfil-api__intro { color: var(--cor-texto-secundario); line-height: 1.6; margin-bottom: 28px; }
+.perfil-api .form-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.perfil-api .form-campo { min-width: 0; }
+.perfil-api__campo-largo { grid-column: 1 / -1; }
+.perfil-api .form-campo input, .perfil-api .form-campo select, .perfil-api .form-campo textarea { font-family: inherit; color-scheme: dark; }
+.perfil-api select[multiple] { min-height: 165px; padding: 8px; }
+.perfil-api select[multiple] option { padding: 9px 12px; border-radius: 6px; }
+.perfil-api .form-campo :focus-visible { outline: 2px solid var(--cor-azul); outline-offset: 3px; }
+.perfil-api__excluir { padding: 13px 20px; margin-right: auto; background: transparent; border: 1px solid rgba(255,77,103,.45); border-radius: 12px; color: #ff8093; font: 600 14px Arial,sans-serif; cursor: pointer; transition: background-color .2s,border-color .2s; }
+.perfil-api__excluir:hover { background: rgba(255,77,103,.1); border-color: #ff4d67; }
+.perfil-api button:disabled { cursor: wait; opacity: .6; }
+.perfil-api [role="status"]:empty { display: none; }
+.perfil-api [role="status"] { margin: 20px 0; padding: 16px; background: rgba(8,20,42,.9); border: 1px solid var(--cor-borda); border-radius: 12px; line-height: 1.5; }
+@media (max-width: 800px) {
+    .perfil-api { padding: 0 16px; margin-top: 24px; }
+    .perfil-api .form-grid { grid-template-columns: 1fr; }
+    .perfil-api__excluir { width: 100%; }
+}
+@media (max-width: 500px) {
+    .perfil-api > h1 { font-size: 28px; }
+    .perfil-api dl { grid-template-columns: 1fr; gap: 6px; padding: 20px; }
+    .perfil-api dd + dt { margin-top: 14px; }
+    .perfil-api__editor > h2 { font-size: 24px; }
+}

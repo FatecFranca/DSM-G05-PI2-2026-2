@@ -1,23 +1,33 @@
-# SonoraWare V2
+# Frontend do SonoraWare
 
-The front end connects to the routes in SonoraWare without modifying the back end.
+Interface em HTML, CSS e JavaScript. A página inicial fica em `index.html`, as telas em `pages/` e os componentes compartilhados em `components/`. A integração com a API passa por [js/api.js](js/api.js).
 
-## Run locally
+## Como executar
 
-1. Prepare MySQL using SonoraWare/src/database/init.sql. The current backend connection expects localhost, user root, password root and database SonoraWare. Check that configuration for your environment.
-2. In SonoraWare, run npm install, configure JWT_SECRET in .env (see .env.example), then run npm start.
-3. In the sonoraware-v2 root, run npm start and open http://localhost:5500. No additional frontend dependencies are needed.
+1. Inicie a API seguindo o [guia do backend](../backend/README.md).
+2. Na pasta `frontend`, execute `npm start`. O servidor usa módulos nativos do Node.js e dispensa a instalação de dependências.
+3. Abra [http://localhost:5500](http://localhost:5500).
 
-The frontend server forwards /api/* to http://localhost:3000. Set API_URL to use a different API address, or FRONTEND_PORT to change the frontend port. Use this server instead of Live Server so API requests reach the backend.
+Use o servidor fornecido pelo projeto para acessar a interface. Ele serve os arquivos estáticos e encaminha requisições de `/api/*` ao backend, removendo o prefixo `/api`.
 
-## Connected features
+| Variável de ambiente | Valor padrão | Finalidade |
+| --- | --- | --- |
+| `FRONTEND_PORT` | `5500` | Porta do servidor da interface |
+| `API_URL` | `http://localhost:3000` | Endereço HTTP do backend |
 
-- Artist, band and venue registration, email login and logout.
-- Artist and band listings on the home page after login.
-- Profile details, editing and deletion of your own artist/band account through Meu perfil.
+Para usar outras portas, defina as variáveis no terminal antes de executar `npm start`. Exemplo no PowerShell com o backend configurado na porta `3001`:
 
-Photos use public image URLs because the API has no upload endpoint. Instrument, genre and venue option IDs match the supplied SQL lookup data. Keep those lookup records when preparing the database. Fields without API equivalents were removed.
+```powershell
+$env:FRONTEND_PORT = '5501'
+$env:API_URL = 'http://localhost:3001'
+npm start
+```
 
-Events, opportunities, requests and applications remain demonstrations because the provided backend has no routes for them. Venue editing/deletion and password recovery are also unavailable in the API.
+Nesse exemplo, abra [http://localhost:5501](http://localhost:5501).
 
-Create an account using the registration form to log in; the SQL contains example password hashes rather than documented demo credentials.
+## Recursos e limitações
+
+- Cadastro de artistas, bandas e estabelecimentos, login por e-mail e encerramento de sessão.
+- Listagem e consulta de artistas e bandas após o login. O titular pode editar ou excluir a própria conta em **Meu perfil**.
+- Eventos, oportunidades, solicitações e inscrições são telas demonstrativas. A API também ainda carece de rotas de recuperação de senha e de edição ou exclusão de estabelecimentos.
+- Para cadastrar um perfil pela interface, deixe a foto em branco. Os formulários ainda usam URLs, enquanto o backend aceita arquivos via `multipart/form-data`. A exibição e a edição de fotos pela interface também dependem da adaptação a esse formato. Consulte a [documentação de fotos de perfil](../backend/docs/profile-photos.md).
